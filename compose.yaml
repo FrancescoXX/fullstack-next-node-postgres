@@ -24,6 +24,9 @@ services:
       - 4000:4000
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres?schema=public
+    command: /start.sh
+    depends_on:
+      - db
   db:
     container_name: db
     image: postgres:12
